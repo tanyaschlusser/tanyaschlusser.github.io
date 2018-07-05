@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tanya Schlusser (Posts about foo bar)</title><link>https://tanyaschlusser.github.io/</link><description></description><atom:link href="https://tanyaschlusser.github.io/categories/foo-bar.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2018 &lt;a href="mailto:tanya@tickel.net"&gt;Tanya Schlusser&lt;/a&gt; </copyright><lastBuildDate>Thu, 05 Jul 2018 20:21:18 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Test post</title><link>https://tanyaschlusser.github.io/posts/test-post/</link><dc:creator>Tanya Schlusser</dc:creator><description>&lt;div&gt;&lt;h2&gt;The title&lt;/h2&gt;
+&lt;h3&gt;Is this a subtitle?&lt;/h3&gt;
+&lt;p&gt;Here is some math:&lt;/p&gt;
+&lt;p&gt;\(
+\frac{\partial y}{\partial t} + D \frac{\partial x^2}{\partial t^2} = 42
+\)&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://tanyaschlusser.github.io/posts/test-post/"&gt;Read more&lt;/a&gt; (1 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>baz</category><category>foo bar</category><category>mathjax</category><guid>https://tanyaschlusser.github.io/posts/test-post/</guid><pubDate>Wed, 20 Jun 2018 20:11:30 GMT</pubDate></item></channel></rss>

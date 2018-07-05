@@ -1,0 +1,64 @@
+## -*- coding: utf-8 -*-
+<%namespace name="helper" file="index_helper.tmpl"/>
+<%namespace name="math" file="math_helper.tmpl"/>
+<%namespace name="comments" file="comments_helper.tmpl"/>
+<%namespace name="pagination" file="pagination_helper.tmpl"/>
+<%namespace name="feeds_translations" file="feeds_translations_helper.tmpl" import="*"/>
+<%inherit file="base.tmpl"/>
+
+<%block name="extra_head">
+    ${parent.extra_head()}\
+    % if posts and (permalink == '/' or permalink == '/' + index_file):
+        <link rel="prefetch" href="${posts[0].permalink()}" type="text/html">
+    % endif
+    ${math.math_styles_ifposts(posts)}\
+</%block>
+
+<%block name="content">
+<%block name="content_header">
+    ${feeds_translations.translation_link()}\
+</%block>
+% if 'main_index' in pagekind:
+    ${front_index_header}\
+% endif
+% if page_links:
+    ${pagination.page_navigation(current_page, page_links, prevlink, nextlink, prev_next_links_reversed)}\
+% endif
+<div class="postindex">
+% for post in posts:
+    <article class="h-entry post-${post.meta('type')}">
+    <header>
+        <h1 class="p-name entry-title"><a href="${post.permalink()}" class="u-url">${post.title()|h}</a></h1>
+        <span class="metadata">
+            <time datetime="${post.formatted_date('webiso')}">${post.formatted_date(date_format)|h}</time>
+            %if post.meta('category'):
+            <span>Filed under <a class="tag p-category" href="${_link('category', post.meta('category').lower())}" rel="category">${post.meta('category')|h}</a>.</span>
+            %endif
+        </span>
+    </header>
+    %if index_teasers:
+    <div class="p-summary entry-summary">
+    ${post.text(teaser_only=True)}\
+    <hr/>
+    %else:
+    <div class="e-content entry-content">
+    ${post.text(teaser_only=False)}\
+    %endif
+    </div>
+    </article>
+%endfor
+</div>
+${helper.html_pager()}\
+% if title == blog_title:
+<aside class="bio">
+    Thank you for visiting! <span class="red">❤ </span> I'm a developer based in
+    <a href="https://chipy.org" title="My home Python user group!">Chicago</a>.
+    I'm not working right now because my Mom is sick, but am happy to connect.
+    You can find me on
+    <a href="https://www.linkedin.com/in/tanyatickel" title="Say you read my blog so I know you're not a robot.">LinkedIn</a> or
+    <a href="https://github.com/tanyaschlusser" title="Where this site is hosted...">GitHub</a>.
+</aside>
+% endif
+${comments.comment_link_script()}\
+${math.math_scripts_ifposts(posts)}\
+</%block>

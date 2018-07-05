@@ -1,4 +1,0 @@
-Sitemap: https://tanyaschlusser.github.io/sitemapindex.xml
-
-User-Agent: *
-Host: tanyaschlusser.github.io

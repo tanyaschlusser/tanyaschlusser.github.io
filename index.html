@@ -18,7 +18,8 @@
 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#1f91c2">
 <meta name="msapplication-TileColor" content="#00aba9">
 <meta name="theme-color" content="#cceeff">
-<!-- favicons generated using http://realfavicongenerator.net/ --><!--[if lt IE 9]><script src="assets/js/html5shiv-printshiv.min.js"></script><![endif]-->
+<!-- favicons generated using http://realfavicongenerator.net/ --><!--[if lt IE 9]><script src="assets/js/html5shiv-printshiv.min.js"></script><![endif]--><link rel="prefetch" href="posts/mcmc-and-the-ising-model/" type="text/html">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-beta/katex.min.css" integrity="sha256-sI/DdD47R/Sa54XZDNFjRWlS+Dv8MC5xfkqQLRh0Jes=" crossorigin="anonymous">
 </head>
 <body>
     <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
@@ -34,6 +35,32 @@
     
     
     </ul></nav></header><main id="content"><div class="postindex">
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/mcmc-and-the-ising-model/" class="u-url">MCMC and the Ising Model</a></h1>
+        <span class="metadata">
+            <time datetime="2018-07-29T00:00:42-05:00">29 Jul 2018</time><span>Filed under <a class="tag p-category" href="categories/cat_methods/" rel="category">Methods</a>.</span>
+        </span>
+    </header><div class="p-summary entry-summary">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><span class="vocabulary" title="A sequence of statistical outcomes in which each step is statistically independent from all of the prior steps.">Markov-Chain</span>
+<span class="vocabulary" title="A computer simulation technique using pseudo-random numbers to simulate random events.">Monte Carlo</span> (MCMC) methods are a category of numerical technique used in Bayesian statistics. They numerically estimate the distribution of a variable (the <span class="vocabulary" title="The prior times the likelihood,  normalized, is the posterior distribution: the probability distribution of the target variable after incorporating the observed data.">posterior</span>) given two other distributions: the <span class="vocabulary" title="A distribution that represents existing knowledge of a system. Often people choose a uniform (flat) distribution; or else something that is the known conjugate prior of a desired posterior distribution.">prior</span> and the <span class="vocabulary" title="A special name for the probability mass (or density) function when you fix the random variable (e.g. `x`) and integrate over the parameters (e.g. `mu` and `theta`). It's renamed 'likelihood' just to make that swap explicit when talking about it. The integral over the parameters may not equal one so you have to normalize.">likelihood function</span>, and are useful when direct integration of the likelihood function is not tractable.</p>
+<p>I am new to Bayesian statistics, but became interested in the approach partly from exposure to the <a href="posts/mcmc-and-the-ising-model/">PyMC3 library</a>, and partly from FiveThirtyEight's promoting it in a <a href="https://fivethirtyeight.com/features/statisticians-found-one-thing-they-can-agree-on-its-time-to-stop-misusing-p-values/">commentary</a> soon after the time of the P-hacking scandals a few years back (<a href="https://www.ncbi.nlm.nih.gov/pubmed/22006061">Simmons et. al.</a> coin 'p-hacking' in 2011, and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4359000">Head et. al.</a> quantify the scale of the issue in 2014).</p>
+<p>Until the 1980's, it was not realistic to use Bayesian techniques except when analytic solutions were possible. (Here's Wikipedia's <a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">list of analytic options</a>. They're still useful.) But MCMC gives us more options.</p>
+<p>The Python library <a href="https://docs.pymc.io/">pymc3</a> provides a suite of modern Bayesian tools: both MCMC algorithms and variational inference. One of its core contributors, Thomas Wiecki, wrote a blog post entitled <a href="https://twiecki.github.io/blog/2015/11/10/mcmc-sampling/">MCMC sampling for dummies</a>, which was the inspiration for this post. It was enthusiastically received, and cited by people I follow as the best available explanation of MCMC. To my dismay, I didn't understand it; probably because he comes from a stats background and I come from engineering. This post is for people like me.</p>
+<p class="more"><a href="posts/mcmc-and-the-ising-model/">Read more</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>    <hr>
+</div>
+    </article>
 </div>
 
 <aside class="bio">
@@ -43,7 +70,20 @@
     You can find me on
     <a href="https://www.linkedin.com/in/tanyatickel" title="Say you read my blog so I know you're not a robot.">LinkedIn</a> or
     <a href="https://github.com/tanyaschlusser" title="Where this site is hosted...">GitHub</a>.
-</aside></main><footer id="footer"><p class="light-sans">© Tanya Schlusser · Subscribe via <a href="rss.xml">RSS</a> · Powered by  <a href="https://getnikola.com" rel="nofollow">Nikola</a> </p>
+</aside><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-beta/katex.min.js" integrity="sha256-mxaM9VWtRj1wBtn50/EDUUe4m3t39ExE+xEPyrxVB8I=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-beta/contrib/auto-render.min.js" integrity="sha256-9uFJqVHnc71lPswxPcpJP49zqhdqp7DFqX68yHs358I=" crossorigin="anonymous"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        
+delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "\\[", right: "\\]", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\(", right: "\\)", display: false}
+]
+
+                    }
+                );
+            </script></main><footer id="footer"><p class="light-sans">© Tanya Schlusser · Subscribe via <a href="rss.xml">RSS</a> · Powered by  <a href="https://getnikola.com" rel="nofollow">Nikola</a> </p>
             
         </footer>
 </body>

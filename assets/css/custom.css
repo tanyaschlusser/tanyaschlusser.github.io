@@ -36,7 +36,8 @@ a:hover {
 }
 
 article {
-  max-width: 95%;
+  width: 95%;
+  max-width: 1000px;
   line-height: 1.36;
   letter-spacing: 0.02em;
   margin: 1em auto auto auto;
@@ -45,6 +46,13 @@ article {
 article nav ul {
   width: fit-content;
   margin: auto;
+}
+
+blockquote {
+  background: #edffff;
+  line-height: 1.42;
+  padding: .5em 1em;
+  width: 75%;
 }
 
 button {
@@ -69,6 +77,10 @@ body > header svg {
   height: 2rem;
   margin: 3px auto;
   padding-right: 15vw;
+}
+
+figcaption {
+  text-align: center;
 }
 
 footer {
@@ -97,6 +109,11 @@ hr {
   height: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+li {
+  margin-bottom: .25em;
+  margin-right: 2em;
 }
 
 nav ul {
@@ -225,6 +242,20 @@ time {
   content: " ⇨";
 }
 
+.output_stderr pre {
+  border: none;
+  border-radius: unset;
+  background-color: #fee;
+  width: 95%;
+}
+
+.output_stdout pre {
+  border: none;
+  border-radius: unset;
+  background-color: #fff;
+  width: 95%;
+}
+
 .postindex h1 {
   margin-bottom: 0;
 }
@@ -250,7 +281,8 @@ time {
 }
 
 .postpromonav ul {
-  width: fit-content;
+  font-size: smaller;
+  max-width: unset;
 }
 
 .projectlist {
@@ -331,6 +363,14 @@ time {
 
 .tags li:hover {
   /*background: #cce;*/
+}
+
+.vocabulary {
+  background: #dffff2;
+}
+
+.vocabulary:hover {
+  cursor: help;
 }
 
 #blog-title {

@@ -1,6 +1,7 @@
 ## -*- coding: utf-8 -*-
 <%namespace name="helper" file="index_helper.tmpl"/>
 <%namespace name="math" file="math_helper.tmpl"/>
+<%namespace name="require" file="require_helper.tmpl"/>
 <%namespace name="comments" file="comments_helper.tmpl"/>
 <%namespace name="pagination" file="pagination_helper.tmpl"/>
 <%namespace name="feeds_translations" file="feeds_translations_helper.tmpl" import="*"/>
@@ -12,6 +13,7 @@
         <link rel="prefetch" href="${posts[0].permalink()}" type="text/html">
     % endif
     ${math.math_styles_ifposts(posts)}\
+    ${require.require_script_ifposts(posts)}
 </%block>
 
 <%block name="content">

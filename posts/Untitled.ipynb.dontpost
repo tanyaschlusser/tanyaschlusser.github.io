@@ -1,0 +1,218 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import json\n",
+    "import altair as alt\n",
+    "from IPython.display import HTML\n",
+    "from  altair.vega import v3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<script>\n",
+       "requirejs.config({\n",
+       "    baseUrl: 'https://cdn.jsdelivr.net/npm/',\n",
+       "    paths: {\"vega\": \"https://cdn.jsdelivr.net/npm/vega@v3.3.1?noext\", \"vega-lib\": \"https://cdn.jsdelivr.net/npm/vega-lib?noext\", \"vega-lite\": \"https://cdn.jsdelivr.net/npm/vega-lite@v2.4.3?noext\", \"vega-embed\": \"https://cdn.jsdelivr.net/npm/vega-embed@3?noext\"}\n",
+       "});\n",
+       "</script>This code block sets up embedded rendering in HTML output and<br/>provides the function `render(chart, id='vega-chart')` for use below."
+      ],
+      "text/plain": [
+       "<IPython.core.display.HTML object>"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "##-----------------------------------------------------------\n",
+    "# This whole section \n",
+    "vega_url = 'https://cdn.jsdelivr.net/npm/vega@' + v3.SCHEMA_VERSION\n",
+    "vega_lib_url = 'https://cdn.jsdelivr.net/npm/vega-lib'\n",
+    "vega_lite_url = 'https://cdn.jsdelivr.net/npm/vega-lite@' + alt.SCHEMA_VERSION\n",
+    "vega_embed_url = 'https://cdn.jsdelivr.net/npm/vega-embed@3'\n",
+    "noext = \"?noext\"\n",
+    "\n",
+    "paths = {\n",
+    "    'vega': vega_url + noext,\n",
+    "    'vega-lib': vega_lib_url + noext,\n",
+    "    'vega-lite': vega_lite_url + noext,\n",
+    "    'vega-embed': vega_embed_url + noext\n",
+    "}\n",
+    "\n",
+    "workaround = \"\"\"\n",
+    "requirejs.config({{\n",
+    "    baseUrl: 'https://cdn.jsdelivr.net/npm/',\n",
+    "    paths: {}\n",
+    "}});\n",
+    "\"\"\"\n",
+    "\n",
+    "#------------------------------------------------ Defs for future rendering\n",
+    "def add_autoincrement(render_func):\n",
+    "    # Keep track of unique <div/> IDs\n",
+    "    cache = {}\n",
+    "    def wrapped(chart, id=\"vega-chart\", autoincrement=True):\n",
+    "        if autoincrement:\n",
+    "            if id in cache:\n",
+    "                counter = 1 + cache[id]\n",
+    "                cache[id] = counter\n",
+    "            else:\n",
+    "                cache[id] = 0\n",
+    "            actual_id = id if cache[id] == 0 else id + '-' + str(cache[id])\n",
+    "        else:\n",
+    "            if id not in cache:\n",
+    "                cache[id] = 0\n",
+    "            actual_id = id\n",
+    "        return render_func(chart, id=actual_id)\n",
+    "    # Cache will stay outside and \n",
+    "    return wrapped\n",
+    "\n",
+    "@add_autoincrement\n",
+    "def render(chart, id=\"vega-chart\"):\n",
+    "    chart_str = \"\"\"\n",
+    "    <div id=\"{id}\"></div><script>\n",
+    "    require([\"vega-embed\"], function(vg_embed) {{\n",
+    "        const spec = {chart};     \n",
+    "        vg_embed(\"#{id}\", spec, {{defaultStyle: true}}).catch(console.warn);\n",
+    "    }});\n",
+    "    </script>\n",
+    "    \"\"\"\n",
+    "    return HTML(\n",
+    "        chart_str.format(\n",
+    "            id=id,\n",
+    "            chart=json.dumps(chart) if isinstance(chart, dict) else chart.to_json(indent=None)\n",
+    "        )\n",
+    "    )\n",
+    "\n",
+    "HTML(\"\".join((\n",
+    "    \"<script>\",\n",
+    "    workaround.format(json.dumps(paths)),\n",
+    "    \"</script>\",\n",
+    "    \"This code block sets up embedded rendering in HTML output and<br/>\",\n",
+    "    \"provides the function `render(chart, id='vega-chart')` for use below.\"\n",
+    ")))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def word_cloud(pixwidth=720, pixheight=450, column=\"index\", counts=\"count\"):\n",
+    "    data= [dict(name=\"dataset\", values=[{\"index\":\"foo\", \"count\":2}, {\"index\":\"bar\", \"count\":4}, {\"index\":\"baz\", \"count\":8}, {\"index\":\"grunt\", \"count\":6}, {\"index\":\"squeak\", \"count\":3}])]\n",
+    "    wordcloud = {\n",
+    "        \"$schema\": \"https://vega.github.io/schema/vega/v3.json\",\n",
+    "        \"width\": pixwidth,\n",
+    "        \"height\": pixheight,\n",
+    "        \"padding\": 0,\n",
+    "        \"title\": \"Hover to see number of responese from each country\",\n",
+    "        \"data\": data\n",
+    "    }\n",
+    "    scale = dict(\n",
+    "        name=\"color\",\n",
+    "        type=\"ordinal\",\n",
+    "        range=[\"cadetblue\", \"royalblue\", \"steelblue\", \"navy\", \"teal\"]\n",
+    "    )\n",
+    "    mark = {\n",
+    "        \"type\":\"text\",\n",
+    "        \"from\":dict(data=\"dataset\"),\n",
+    "        \"encode\":dict(\n",
+    "            enter=dict(\n",
+    "                text=dict(field=column),\n",
+    "                align=dict(value=\"center\"),\n",
+    "                baseline=dict(value=\"alphabetic\"),\n",
+    "                fill=dict(scale=\"color\", field=column),\n",
+    "                tooltip=dict(signal=\"datum.count + ' respondents'\")\n",
+    "            )\n",
+    "        ),\n",
+    "        \"transform\": [{\n",
+    "            \"type\": \"wordcloud\",\n",
+    "            \"text\": dict(field=column),\n",
+    "            \"size\": [pixwidth, pixheight],\n",
+    "            \"font\": \"Helvetica Neue, Arial\",\n",
+    "            \"fontSize\": dict(field=\"datum.{}\".format(counts)),\n",
+    "            \"fontSizeRange\": [10, 60],\n",
+    "            \"padding\": 2\n",
+    "        }]\n",
+    "    }\n",
+    "    wordcloud[\"scales\"] = [scale]\n",
+    "    wordcloud[\"marks\"] = [mark]\n",
+    "    # return v3.vega(wordcloud)  ## return the dictionary instead when using `render` instead of altair.vega.v3\n",
+    "    return wordcloud"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "\n",
+       "    <div id=\"vega-chart\"></div><script>\n",
+       "    require([\"vega-embed\"], function(vg_embed) {\n",
+       "        const spec = {\"$schema\": \"https://vega.github.io/schema/vega/v3.json\", \"width\": 400, \"height\": 250, \"padding\": 0, \"title\": \"Hover to see number of responese from each country\", \"data\": [{\"name\": \"dataset\", \"values\": [{\"index\": \"foo\", \"count\": 2}, {\"index\": \"bar\", \"count\": 4}, {\"index\": \"baz\", \"count\": 8}, {\"index\": \"grunt\", \"count\": 6}, {\"index\": \"squeak\", \"count\": 3}]}], \"scales\": [{\"name\": \"color\", \"type\": \"ordinal\", \"range\": [\"cadetblue\", \"royalblue\", \"steelblue\", \"navy\", \"teal\"]}], \"marks\": [{\"type\": \"text\", \"from\": {\"data\": \"dataset\"}, \"encode\": {\"enter\": {\"text\": {\"field\": \"index\"}, \"align\": {\"value\": \"center\"}, \"baseline\": {\"value\": \"alphabetic\"}, \"fill\": {\"scale\": \"color\", \"field\": \"index\"}, \"tooltip\": {\"signal\": \"datum.count + ' respondents'\"}}}, \"transform\": [{\"type\": \"wordcloud\", \"text\": {\"field\": \"index\"}, \"size\": [400, 250], \"font\": \"Helvetica Neue, Arial\", \"fontSize\": {\"field\": \"datum.count\"}, \"fontSizeRange\": [10, 60], \"padding\": 2}]}]};     \n",
+       "        vg_embed(\"#vega-chart\", spec, {defaultStyle: true}).catch(console.warn);\n",
+       "        console.log(\"anything?\");\n",
+       "    });\n",
+       "    console.log(\"really...anything?\");\n",
+       "    </script>\n",
+       "    "
+      ],
+      "text/plain": [
+       "<IPython.core.display.HTML object>"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "render(word_cloud(pixheight=250, pixwidth=400))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

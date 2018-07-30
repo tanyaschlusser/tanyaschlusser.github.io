@@ -67,13 +67,13 @@
 <p><span class="vocabulary" title="A sequence of statistical outcomes in which each step is statistically independent from all of the prior steps.">Markov-Chain</span>
 <span class="vocabulary" title="A computer simulation technique using pseudo-random numbers to simulate random events.">Monte Carlo</span> (MCMC) methods are a category of numerical technique used in Bayesian statistics. They numerically estimate the distribution of a variable (the <span class="vocabulary" title="The prior times the likelihood,  normalized, is the posterior distribution: the probability distribution of the target variable after incorporating the observed data.">posterior</span>) given two other distributions: the <span class="vocabulary" title="A distribution that represents existing knowledge of a system. Often people choose a uniform (flat) distribution; or else something that is the known conjugate prior of a desired posterior distribution.">prior</span> and the <span class="vocabulary" title="A special name for the probability mass (or density) function when you fix the random variable (e.g. `x`) and integrate over the parameters (e.g. `mu` and `theta`). It's renamed 'likelihood' just to make that swap explicit when talking about it. The integral over the parameters may not equal one so you have to normalize.">likelihood function</span>, and are useful when direct integration of the likelihood function is not tractable.</p>
 <p>I am new to Bayesian statistics, but became interested in the approach partly from exposure to the <a href=".">PyMC3 library</a>, and partly from FiveThirtyEight's promoting it in a <a href="https://fivethirtyeight.com/features/statisticians-found-one-thing-they-can-agree-on-its-time-to-stop-misusing-p-values/">commentary</a> soon after the time of the P-hacking scandals a few years back (<a href="https://www.ncbi.nlm.nih.gov/pubmed/22006061">Simmons et. al.</a> coin 'p-hacking' in 2011, and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4359000">Head et. al.</a> quantify the scale of the issue in 2014).</p>
-<p>Until the 1980's, it was not realistic to use Bayesian techniques except when analytic solutions were possible. (Here's Wikipedia's <a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">list of analytic options</a>. They're still useful.) But MCMC gives us more options.</p>
+<p>Until the 1980's, it was not realistic to use Bayesian techniques except when analytic solutions were possible. (Here's Wikipedia's <a href="https://en.wikipedia.org/wiki/Conjugate_prior#Table_of_conjugate_distributions">list of analytic options</a>. They're still useful.) MCMC opens up more options.</p>
 <p>The Python library <a href="https://docs.pymc.io/">pymc3</a> provides a suite of modern Bayesian tools: both MCMC algorithms and variational inference. One of its core contributors, Thomas Wiecki, wrote a blog post entitled <a href="https://twiecki.github.io/blog/2015/11/10/mcmc-sampling/">MCMC sampling for dummies</a>, which was the inspiration for this post. It was enthusiastically received, and cited by people I follow as the best available explanation of MCMC. To my dismay, I didn't understand it; probably because he comes from a stats background and I come from engineering. This post is for people like me.</p>
 <!-- TEASER_END -->
 
 <h4 id="MCMC-for-dumber-dummies-(i.e.-engineers-like-me)">MCMC for dumber dummies (i.e. engineers like me)<a class="anchor-link" href="#MCMC-for-dumber-dummies-(i.e.-engineers-like-me)">¶</a>
 </h4>
-<p>My first exposure to MCMC was via the Ising model. This post is for people like me who may remember the term "MCMC" from school and want to start from there to gain a working understanding of Bayesian numerical methods. If engineering concepts are familiar, this should be an accessible post.</p>
+<p>My first exposure to MCMC was via the Ising model. This post is for people like me who may remember the term "MCMC" from school and want to start from there to gain a working understanding of Bayesian numerical methods. If engineering concepts are familiar, this should be an accessible read.</p>
 <p>If you have simulated the Ising model, you've already implemented the original MCMC algorithm: the Metropolis-Hastings Method. If not, the next section briefly describes both MCMC and the Ising model.</p>
 <h3 id="Background">Background<a class="anchor-link" href="#Background">¶</a>
 </h3>
@@ -211,17 +211,17 @@
 <h4 id="Ising-model">Ising model<a class="anchor-link" href="#Ising-model">¶</a>
 </h4>
 <p>The Ising model is named for Ernst Ising, a student of Wilhelm Lenz. He solved the 1-D problem for his doctoral thesis in 1920. In the model, a material is represented by a regular lattice of atoms that can have positive or negative dipole moment (magnetic spin $s$ is up or down: $s = \pm 1$).</p>
-<p>For two or more dimensions, there is a Curie temperature $T_c$ at which a phase transition occurs: below $T_c$, the substance behaves as if it were magnetic. Above it, thermal energy disrupts the tendency toward alignment, and the substance acts as a paramagnetic one.</p>
+<p>For two or more dimensions, there is a Curie temperature $T_c$ at which a phase transition occurs. Below $T_c$, the substance behaves as if it were magnetic. Above it, thermal energy disrupts the tendency toward alignment, and the substance acts as a paramagnetic one.</p>
 <p>Here is an example drawing of a typical state below the critical temperature (left—all one spin—100% magnetization) and above the critical temperature (right—random spins—nearly 0% magnetization):</p>
 <canvas id="mcmc-ising-two-lattices" width="600px" height="250px" style="display:block;margin:1em auto 0;">
     Two 2-D lattices. One is all white, showing spins aligned. The other is randomly half blue and half white, showing spins not aligned.
-</canvas><h5 id="Boltzmann-distribution:-where-the-MCMC-comes-in:">Boltzmann distribution: where the MCMC comes in:<a class="anchor-link" href="#Boltzmann-distribution:-where-the-MCMC-comes-in:">¶</a>
+</canvas><h5 id="Boltzmann-distribution:-where-the-MCMC-comes-in">Boltzmann distribution: where the MCMC comes in<a class="anchor-link" href="#Boltzmann-distribution:-where-the-MCMC-comes-in">¶</a>
 </h5>
 <p>In the Ising model, the distribution of spins in the lattice depends on temperature, and follows the Boltzmann distribution:</p>
 <p>$$
     \text{frequency distribution} \propto e^{-E / k T}
 $$</p>
-<p>In which $k$ is Boltzmann's constant, $T$ is the lattice temperature, and $E$ is the total energy from magnetization. When there is no external magnetic field, and given a coupling parameter $J &gt; 0$, the energy from magnetization is:</p>
+<p>In which $k$ is Boltzmann's constant, $T$ is the lattice temperature, and $E$ is the total energy from magnetization. When there is no external magnetic field, and given a coupling parameter $J &gt; 0$ (a property of the particular material), the energy from magnetization is:</p>
 <p>$$
    E = - J \sum_{\text{(atoms)}}\sum_{\text{(neighbor atoms)}}
        \left( s_{\text{atom}} \cdot s_{\text{neighbor}}\right)
@@ -311,7 +311,7 @@ its energy given the magnetization, and then performing a weighted average based
           \text{magnetization} \cdot e^{-E / k T}
 \end{aligned}
 $$</p>
-<p>But that's a lot of states: even if we have a quite small $10 \times 10$ grid, it makes 100 positions and thus—with spin up and spin down—$2^{100}$ total different configurations. Even at modern processor speeds, this is a time prohibitive approach.</p>
+<p>But that's a lot of states. Even if we have a quite small $10 \times 10$ grid, it makes 100 positions and thus—with spin up and spin down—$2^{100}$ total different configurations. At modern processor speeds, this is still a time prohibitive approach.</p>
 <h4 id="Weighted-sum-over-randomly-chosen-states">Weighted sum over randomly-chosen states<a class="anchor-link" href="#Weighted-sum-over-randomly-chosen-states">¶</a>
 </h4>
 <p>So, rather than stepping through all of the possible configurations, what if we randomly choose a bunch of configurations and take the weighted average of their frequency?</p>
@@ -410,7 +410,7 @@ distribution with density $p(x)$ are:
 <div class="text_cell_render border-box-sizing rendered_html">
 <h5 id="What-Hastings-was-saying">What Hastings was saying<a class="anchor-link" href="#What-Hastings-was-saying">¶</a>
 </h5>
-<p>It's easier to understand ideas with a concrete example. Like the Ising model. The important physics, described earlier, is that the spin configurations follow the Boltzmann distribution:</p>
+<p>It's easier to understand ideas with a concrete example like the Ising model. The important physics, described earlier, is that the spin configurations follow the Boltzmann distribution:</p>
 <p>$$
  \text{frequency distribution of configurations} \propto \exp(-E / k T)
 $$</p>
@@ -436,10 +436,11 @@ $$</p>
 <p>But we don't know the denominator. Which was the original hangup for Bayesian statisticians. Fortunately, it's not a problem when you use MCMC. Like Hastings said,</p>
 <blockquote>
 The computations depend on $p(x)$ only through ratios
-     of the form $p(x')/p(x)$, where $x'$ and $x$ are sample
+     of the form $p(x')/p(x)$,<wbr> where $x'$ and $x$ are sample
      points. Thus, the normalizing constant need not be known,
      no factorization of $p(x)$ is necessary, and the methods
      are very easily implemented on a computer. 
+</wbr>
 </blockquote>
 </div>
 </div>
@@ -461,7 +462,7 @@ new configuration vs. the old one  $p(x')/p(x)$.</li>
 <li>Repeat #2 to #3 until the system converges.</li>
 <li>Except actually this one just goes $N$ steps instead of checking for convergence because all I want to do is make an animation of the transient part.</li>
 </ol>
-<p>For the Ising model, the probability that configuration $x$ occurs is</p>
+<p>The probability mass function for $x$ is</p>
 <p>$$
  p(x) =
   \frac{ \exp(- H(x) / \tilde{T}) }
@@ -494,7 +495,7 @@ Hastings describes a couple of options in the literature,
 but says the choice by Metropolis and his team was the most efficient.
 So, the algorithm is to switch to $x'$ from $x$ with the probability:</p>
 <p>$$
-p(\text{switch}) = \left\lbrace
+p(\text{switch to }x') = \left\lbrace
 \begin{matrix}
 1 &amp; \text{ if }  H(x') - H(x) &lt; 0
   \kern1em\text{(lower energy)}\\
@@ -552,8 +553,10 @@ $$</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="Standard-approach">Standard approach<a class="anchor-link" href="#Standard-approach">¶</a>
 </h4>
-<p>This code implements the Metropolis-Hastings method for the Ising model as
-<a href="http://farside.ph.utexas.edu/teaching/329/lectures/node110.html">Richard Fitzpatrick describes it</a>.</p>
+<p>The code in this section implements the Metropolis-Hastings method for the Ising model as
+<a href="http://farside.ph.utexas.edu/teaching/329/lectures/node110.html">Richard Fitzpatrick describes it</a>.
+The code about to calculate the energy (<code>get_dH</code>) appears first. After that,
+in <code>standard_approach</code>, comes the MCMC implementation.</p>
 <p>The function <code>get_dH</code> calculates $H(x') - H(x)$.
 Because none of the other positions in the lattice change,
 it is not necessary to calculate the energy except at the
@@ -698,7 +701,7 @@ by one to get the nearest neighbors.</p>
 <p>The way PyMC3 is used here is nonstandard: typically you'd use observed values to update the <span class="vocabulary" title="The prior is a probability distribution that reflects all of the previous knowledge of the system to this point. Often the uniform (flat) distribution, which implies no previous knowledge.">prior</span> estimate of the variables you're looking for, but this example has no observed values. Instead, it adds the <code>pm.Potential</code>, which will change the <span class="vocabulary" title="Likelihood is what statisticians rename the probability mass function (or density function) when you fix the the observed value (usually the `x`) and instead vary distribution parameters (such as `theta`). In equation form, instead of p(x|theta) they write it L(theta) = p(theta|x).">likelihood</span> directly to guide the MCMC random walk toward the lower-energy configurations.</p>
 <p>The function <code>mc3_approach</code> runs the MCMC simulation using PyMC3. It performs th same function as <code>standard_approach</code>, for the most part. The main difference is it uses a full-blown MCMC framework, so we can't cheat and step through the positions in sequence like we did with the custom code.</p>
 <p>Instead, at each step it will draw an entirely new lattice to try. The problem with this is multiple spins may cancel each other out, meaning the MCMC algorithm will take longer to converge. To fix this, we set <code>scaling = .0006</code> so that on average only one position in the lattice will change at each step. (From the source code, a random uniform value must be below   <code>1 - .5**scaling</code> for the algorithm to attempt a flip.)</p>
-<p>Here's the function. Each line will be described separately below.</p>
+<p>Here's the function. Each line will be broken down in the next section.</p>
 
 </div>
 </div>
@@ -739,12 +742,12 @@ by one to get the nearest neighbors.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The middle part is where the PyMC3 library is used. The code below is the same as above starting from the PyMC3 model context, with a ton of comments.</p>
+<p>The middle part is where the PyMC3 library is used. The code below is the same as above starting from the PyMC3 model context (<code>with pm.Model() as model</code>), with added comments.</p>
 <div class="highlight"><pre><span></span><span class="c1"># PyMC3 uses a model context to collect all of the</span>
 <span class="c1"># random variables together. Every random variable that</span>
 <span class="c1"># is declared inside this context will be attached to</span>
 <span class="c1"># the model. The variables can depend on each other,</span>
-<span class="c1"># and will advanced through the Markov Chain together.</span>
+<span class="c1"># and will advance through the Markov Chain together.</span>
 
 <span class="k">with</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span> <span class="k">as</span> <span class="n">model</span><span class="p">:</span>
     <span class="c1"># PyMC3 has pre-defined common discrete and continuous</span>
@@ -790,7 +793,7 @@ by one to get the nearest neighbors.</p>
                       <span class="n">chains</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># default is 2</span>
                       <span class="n">tune</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </pre></div>
-<h4 id="Run-both">Run both<a class="anchor-link" href="#Run-both">¶</a>
+<h4 id="Now-run-both-approaches">Now run both approaches<a class="anchor-link" href="#Now-run-both-approaches">¶</a>
 </h4>
 <p>Finally, this is the part where the two different methods are called
 and compared. I had to increase the number of samples in the MC3 approach
@@ -933,8 +936,8 @@ samples from the random walk. The weighting of the walk is such that
 if you randomly draw new predictions from the tail end of the trace
 (after it has converged), your draws will follow the posterior
 distribution of your target variable.</li>
-<li>It uses Theano under the hood, which can take advantage of an NVIDIA
-GPU. This means custom code requires using their
+<li>It uses Theano under the hood. Theano is a matrix math library that can leverage the NVIDIA
+GPU. The caveat is that custom code requires using Theano's functions for
 <a href="http://deeplearning.net/software/theano/library/tensor/basic.html">tensor math</a>.
 Note that <a href="https://github.com/pymc-devs/pymc4">PyMC4</a>
 is about to come out and it depends on TensorFlow if you prefer that
@@ -1085,8 +1088,7 @@ Martin Tanner and Wing Wong's fantastic survey of the history of Markov Chain Mo
 <a href="https://www.astro.princeton.edu/~strauss/AST303/bayesian_paper.pdf">"Why isn't every physicist a Bayesian?" (pdf)</a><br>
 ☆ Choose this if you only have time for one paper. ☆<br>
 Robert D. Cousins's paper is technical but understandable. It mercifully avoids the religious fervor of other papers on the topic.
-<em>Am. J. Phys.</em>, Vol. 63, No. 5 (May 1995).
-(<a href="http://lib.stat.cmu.edu/bayesworkshop/2001/BaSisGuideline.htm">http://lib.stat.cmu.edu/bayesworkshop/2001/BaSisGuideline.htm</a>).</li>
+<em>Am. J. Phys.</em>, Vol. 63, No. 5 (May 1995).</li>
 <li>
 <a href="https://www.apa.org/pubs/journals/releases/amp-amp0000191.pdf">Journal Article Reporting Standards for Quantitative Research in
 Psychology: The APA Publications and Communications Board Task
@@ -1094,13 +1096,13 @@ Force Report</a><br>
 Table 8 is about reporting Bayesian results. It's longer and more detailed than the BaSiS group checklist listed next.</li>
 <li>
 <a href="http://lib.stat.cmu.edu/bayesworkshop/2001/BaSis.html">Standards for Reporting of Bayesian Analyses in the Scientific Literature (no https)</a><br>
-The Bayesian Standards in Science group (BaSiS) compiled a checklist in 2001 for what to include when reporting Bayesian results. Short and sweet. Scroll to the bottom for the <a href="http://lib.stat.cmu.edu/bayesworkshop/2001/BaSisGuideline.htm">link to the checklist (no https)</a>.</li>
+The Bayesian Standards in Science group (BaSiS) compiled a checklist in 2001 for what to include when reporting Bayesian results. Short and sweet. <a href="http://lib.stat.cmu.edu/bayesworkshop/2001/BaSisGuideline.htm">The actual checklist (no https)</a>.</li>
 <li>
 <a href="https://arxiv.org/abs/1411.5018">Frequentism and Bayesianism: A Python-driven Primer (pdf)</a><br>
-Jake VanderPlas's 2014 paper is a mildly technical summary of the two philosophies. It demonstrates both techniques using Python but sort of feels like it's trolling Frequentists. The Cousins paper was easier for me to understand. <em>Proc. of the 13th Python in science conf.</em> (SCIPY 2014).</li>
+Jake VanderPlas's 2014 paper is a summary of both the Frequentist and Bayesian philosophies. It uses accessible language and examples, and demonstrates both techniques using Python but sort of feels like it's trolling Frequentists. The Cousins paper was easier for me to understand. <em>Proc. of the 13th Python in science conf.</em> (SCIPY 2014).</li>
 <li>
 <a href="https://jakevdp.github.io/blog/2014/06/14/frequentism-and-bayesianism-4-bayesian-in-python/">Frequentism and Bayesianism blog post</a><br>
-VanderPlas's 2014 blog post describes PyMC (the precursor to <a href="https://docs.pymc.io/">PyMC3</a>) and two other Python tools, with a lot of the examples eventually going into the above paper.</li>
+VanderPlas's 2014 blog post describes PyMC (the precursor to <a href="https://docs.pymc.io/">PyMC3</a>) and two other Python tools, with a lot of the examples eventually going into the above paper; for people who prefer a blog format.</li>
 <li>
 <a href="https://twiecki.github.io/blog/2015/11/10/mcmc-sampling/">MCMC sampling for dummies</a><br>
 Thomas Wiecki's 2015 blog post that inspired this one. It's good for people who are comfortable with the statistics part of the Bayesian approach but not comfortable with the numerical methods part of MCMC. (That's actually the opposite of what I was.)</li>
@@ -1153,7 +1155,7 @@ delimiters: [
 
                     }
                 );
-            </script></main><footer id="footer"><p class="light-sans">© Tanya Schlusser · Subscribe via <a href="../../rss.xml">RSS</a> · Powered by  <a href="https://getnikola.com" rel="nofollow">Nikola</a> </p>
+            </script></main><footer id="footer"><p class="light-sans">© Tanya Schlusser · Subscribe via <a href="../../rss.xml">RSS</a> · Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> using a <a href="https://github.com/tanyaschlusser/tanyaschlusser.github.io/tree/src">custom theme</a> </p>
             
         </footer>
 </body>

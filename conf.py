@@ -444,7 +444,7 @@ POSTS_SECTIONS = True
 # If you do not want to display a tag publicly, you can mark it as hidden.
 # The tag will not be displayed on the tag list page, the tag cloud and posts.
 # Tag pages will still be generated.
-HIDDEN_TAGS = ['mathjax']
+HIDDEN_TAGS = ['mathjax', 'require']
 
 # Only include tags on the tag list/overview page if there are at least
 # TAGLIST_MINIMUM_POSTS number of posts or more with every tag. Every tag
@@ -1096,14 +1096,14 @@ USE_KATEX = True
 
 # KaTeX auto-render settings. If you want support for the $.$ syntax (wihch may
 # conflict with running text!), just use this config:
-#KATEX_AUTO_RENDER = """
-#delimiters: [
-#    {left: "$$", right: "$$", display: true},
-#    {left: "\\\[", right: "\\\]", display: true},
-#    {left: "$", right: "$", display: false},
-#    {left: "\\\(", right: "\\\)", display: false}
-#]
-#"""
+KATEX_AUTO_RENDER = """
+delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "\\\[", right: "\\\]", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\\(", right: "\\\)", display: false}
+]
+"""
 
 # Do you want to customize the nbconversion of your IPython notebook?
 # IPYNB_CONFIG = {}

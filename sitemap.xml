@@ -7,86 +7,106 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://tanyaschlusser.github.io/</loc>
-  <lastmod>2018-07-30T12:08:00Z</lastmod>
+  <lastmod>2018-08-21T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/404.html</loc>
-  <lastmod>2018-07-30T23:08:00Z</lastmod>
+  <lastmod>2018-08-21T19:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/archive.html</loc>
-  <lastmod>2018-08-01T20:25:00Z</lastmod>
+  <lastmod>2018-08-21T21:43:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/</loc>
-  <lastmod>2018-07-30T12:08:00Z</lastmod>
+  <lastmod>2018-08-21T21:31:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/bayesian/</loc>
-  <lastmod>2018-07-30T12:08:00Z</lastmod>
+  <lastmod>2018-08-21T19:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/cat_data/</loc>
+  <lastmod>2018-08-21T19:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/cat_methods/</loc>
-  <lastmod>2018-07-30T12:08:00Z</lastmod>
+  <lastmod>2018-08-21T19:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/civic-data/</loc>
+  <lastmod>2018-08-21T19:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/mcmc/</loc>
-  <lastmod>2018-07-30T12:08:00Z</lastmod>
+  <lastmod>2018-08-21T19:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/pymc3/</loc>
-  <lastmod>2018-07-30T12:08:00Z</lastmod>
+  <lastmod>2018-08-21T19:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/selenium/</loc>
+  <lastmod>2018-08-21T21:31:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/taxes/</loc>
+  <lastmod>2018-08-21T19:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/posts/</loc>
-  <lastmod>2018-07-30T12:08:00Z</lastmod>
+  <lastmod>2018-08-21T19:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/posts/mcmc-and-the-ising-model/</loc>
-  <lastmod>2018-07-30T13:10:00Z</lastmod>
+  <lastmod>2018-08-21T19:41:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/posts/property-tax-cook-county/</loc>
+  <lastmod>2018-08-21T21:31:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/projects/</loc>
-  <lastmod>2018-07-30T12:08:00Z</lastmod>
+  <lastmod>2018-08-21T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/</loc>
-  <lastmod>2018-07-30T12:08:00Z</lastmod>
+  <lastmod>2018-08-21T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/BigData.slides.html</loc>
-  <lastmod>2018-07-30T23:19:00Z</lastmod>
+  <lastmod>2018-08-18T01:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/Energy-efficiency-and-design-in-burners.slides.html</loc>
-  <lastmod>2018-07-30T23:21:00Z</lastmod>
+  <lastmod>2018-08-18T01:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/Github-intro.slides.html</loc>
-  <lastmod>2018-07-30T23:22:00Z</lastmod>
+  <lastmod>2018-08-18T01:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/Jekyll-intro.slides.html</loc>
-  <lastmod>2018-07-05T20:30:00Z</lastmod>
+  <lastmod>2018-08-18T01:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/OReilly_python_books.slides.html</loc>
-  <lastmod>2018-07-30T23:23:00Z</lastmod>
+  <lastmod>2018-08-18T01:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/PlatformMadnessLinks.html</loc>
-  <lastmod>2018-07-05T20:30:00Z</lastmod>
+  <lastmod>2018-08-18T01:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/Python-Fu-in-GIMP.slides.html</loc>
-  <lastmod>2018-07-05T20:30:00Z</lastmod>
+  <lastmod>2018-08-18T01:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/Python-intro.slides.html</loc>
-  <lastmod>2018-07-30T23:23:00Z</lastmod>
+  <lastmod>2018-08-18T01:46:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/install-python.slides.html</loc>
-  <lastmod>2018-07-30T23:24:00Z</lastmod>
+  <lastmod>2018-08-18T01:46:00Z</lastmod>
  </url>
 </urlset>

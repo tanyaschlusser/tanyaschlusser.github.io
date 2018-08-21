@@ -242,6 +242,10 @@ time {
   content: " ⇨";
 }
 
+.output_html {
+  overflow-x: scroll;
+}
+
 .output_stderr pre {
   border: none;
   border-radius: unset;
@@ -249,11 +253,14 @@ time {
   width: 95%;
 }
 
-.output_stdout pre {
+.output_stdout pre,
+.output_text pre {
   border: none;
   border-radius: unset;
   background-color: #fff;
   width: 95%;
+  max-height: 8em;
+  overflow-y: auto;
 }
 
 .postindex h1 {
@@ -424,6 +431,24 @@ time {
   display: none;
 }
 
+.prompt [role="button"] {
+  display: initial;
+}
+
+.prompt [role="button"]:active,
+.prompt [role="button"]:focus,
+.prompt [role="button"][aria-pressed="true"] {
+  color: #228;
+}
+
+.prompt toggle-closed::after {
+  content: "▷";
+}
+
+.prompt toggle-open::after {
+  content: "▽";
+}
+
 .rendered_html {
   color: #000;
   padding: 1em;
@@ -482,7 +507,11 @@ time {
 .rendered_html tbody tr:hover {
   background: rgba(66, 165, 245, 0.2);
 }
-.rendered_html * + table {
+.rendered_html * + table,
+.rendered_html * + img,
+.rendered_html * + ol,
+.rendered_html * + ul,
+ {
   margin-top: 1em;
 }
 
@@ -490,9 +519,6 @@ time {
   display: block;
   margin-left: auto;
   margin-right: auto;
-}
-.rendered_html * + img {
-  margin-top: 1em;
 }
 .rendered_html img,
 .rendered_html svg {

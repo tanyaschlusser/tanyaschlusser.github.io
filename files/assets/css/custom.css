@@ -427,26 +427,35 @@ time {
 /** -------------------------------
  * Jupyter
  */
+.hidden {
+  display: none;
+}
+
 .prompt {
   display: none;
 }
 
-.prompt [role="button"] {
+.prompt[role="button"] {
   display: initial;
+  font-size: small;
 }
 
-.prompt [role="button"]:active,
-.prompt [role="button"]:focus,
-.prompt [role="button"][aria-pressed="true"] {
+.prompt[role="button"] {
+  color: #008;
+}
+
+.prompt[role="button"]:active,
+.prompt[role="button"]:focus {
   color: #228;
+  font-weight: 300;
 }
 
-.prompt toggle-closed::after {
-  content: "▷";
+.prompt[aria-pressed="false"]::after {
+  content: " ▷";
 }
 
-.prompt toggle-open::after {
-  content: "▽";
+.prompt[aria-pressed="true"]::after {
+  content: " ▽";
 }
 
 .rendered_html {

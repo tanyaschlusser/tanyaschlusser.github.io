@@ -32,7 +32,8 @@ function getMatches(e) {
         var tmp = u
         .replace(/https?:\/\/.+?\//, '\/')
         .replace(/(\?|;).+$/, '')
-        .replace(/\/20\d{2}\//, '\/\\d{4}\/')
+        .replace(/\/\d+\//g, '\/\\d+\/')
+        .replace(/\/\d+\//g, '\/\\d+\/')
         .replace(/[^\/]+(?=\.\w+$)/, '.*\\')
         .replace(/\//g, '\\/');
         matches.add(tmp);

@@ -1,0 +1,39 @@
+<style>
+form {
+  font-size: larger;
+  margin: auto;
+  padding-top: 2em;
+  width: 80%;
+}
+
+form label {
+  display: block;
+}
+</style>
+
+<form>
+<div>
+  <label>Paste URLs here:</label>
+  <textarea id="urls" rows="10" cols="90" oninput="getMatches(event);"></textarea>
+</div>
+<pre id="result">
+</pre>
+</form>
+
+<script>
+function getMatches(e) {
+    var matches = new Set();
+    var urls = e.target.value.split('\n');
+    urls.forEach(function(u){
+        var tmp = u
+        .replace(/https?:\/\/.+?\//, '\/')
+        .replace(/(\?|;).+$/, '')
+        .replace(/\/20\d{2}\//, '\/\\d{4}\/')
+        .replace(/[^\/]+(?=\.\w+$)/, '.*\\')
+        .replace(/\//g, '\\/');
+        matches.add(tmp);
+    });
+    var msg = Array.from(matches).join('\n');
+    document.getElementById("result").innerHTML = msg;
+}
+</script>

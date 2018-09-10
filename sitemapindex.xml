@@ -6,8 +6,12 @@
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <sitemap>
+  <loc>https://tanyaschlusser.github.io/categories/ab-testing.xml</loc>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
+ </sitemap>
+ <sitemap>
   <loc>https://tanyaschlusser.github.io/categories/bayesian.xml</loc>
-  <lastmod>2018-09-10T14:48:00Z</lastmod>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://tanyaschlusser.github.io/categories/cat_data.xml</loc>
@@ -15,7 +19,7 @@
  </sitemap>
  <sitemap>
   <loc>https://tanyaschlusser.github.io/categories/cat_methods.xml</loc>
-  <lastmod>2018-09-10T14:48:00Z</lastmod>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://tanyaschlusser.github.io/categories/civic-data.xml</loc>
@@ -23,15 +27,19 @@
  </sitemap>
  <sitemap>
   <loc>https://tanyaschlusser.github.io/categories/feature-engineering.xml</loc>
-  <lastmod>2018-09-10T14:48:00Z</lastmod>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://tanyaschlusser.github.io/categories/iterative.xml</loc>
-  <lastmod>2018-09-10T14:48:00Z</lastmod>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://tanyaschlusser.github.io/categories/mcmc.xml</loc>
   <lastmod>2018-08-21T19:41:00Z</lastmod>
+ </sitemap>
+ <sitemap>
+  <loc>https://tanyaschlusser.github.io/categories/nfl.xml</loc>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://tanyaschlusser.github.io/categories/pymc3.xml</loc>
@@ -47,10 +55,10 @@
  </sitemap>
  <sitemap>
   <loc>https://tanyaschlusser.github.io/rss.xml</loc>
-  <lastmod>2018-09-10T15:10:00Z</lastmod>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </sitemap>
  <sitemap>
   <loc>https://tanyaschlusser.github.io/sitemap.xml</loc>
-  <lastmod>2018-09-10T15:10:00Z</lastmod>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </sitemap>
 </sitemapindex>

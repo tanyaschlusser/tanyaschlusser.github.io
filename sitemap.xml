@@ -15,11 +15,15 @@
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/archive.html</loc>
-  <lastmod>2018-09-10T15:10:00Z</lastmod>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/</loc>
-  <lastmod>2018-09-10T05:20:00Z</lastmod>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/ab-testing/</loc>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/bayesian/</loc>
@@ -48,6 +52,10 @@
  <url>
   <loc>https://tanyaschlusser.github.io/categories/mcmc/</loc>
   <lastmod>2018-08-21T19:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/nfl/</loc>
+  <lastmod>2018-09-10T16:40:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/pymc3/</loc>

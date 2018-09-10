@@ -7,7 +7,7 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://tanyaschlusser.github.io/</loc>
-  <lastmod>2018-08-21T19:41:00Z</lastmod>
+  <lastmod>2018-09-10T04:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/404.html</loc>
@@ -15,11 +15,11 @@
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/archive.html</loc>
-  <lastmod>2018-08-21T22:28:00Z</lastmod>
+  <lastmod>2018-09-10T05:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/</loc>
-  <lastmod>2018-08-21T21:31:00Z</lastmod>
+  <lastmod>2018-09-10T05:20:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/bayesian/</loc>
@@ -36,6 +36,14 @@
  <url>
   <loc>https://tanyaschlusser.github.io/categories/civic-data/</loc>
   <lastmod>2018-08-21T19:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/feature-engineering/</loc>
+  <lastmod>2018-09-10T05:20:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/iterative/</loc>
+  <lastmod>2018-09-10T05:20:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/mcmc/</loc>
@@ -55,7 +63,11 @@
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/posts/</loc>
-  <lastmod>2018-08-21T19:40:00Z</lastmod>
+  <lastmod>2018-09-10T04:41:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/posts/bayesian-updating-and-the-nfl/</loc>
+  <lastmod>2018-09-10T05:33:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/posts/mcmc-and-the-ising-model/</loc>

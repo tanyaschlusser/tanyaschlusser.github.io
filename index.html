@@ -18,7 +18,7 @@
 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#1f91c2">
 <meta name="msapplication-TileColor" content="#00aba9">
 <meta name="theme-color" content="#cceeff">
-<!-- favicons generated using http://realfavicongenerator.net/ --><!--[if lt IE 9]><script src="assets/js/html5shiv-printshiv.min.js"></script><![endif]--><link rel="prefetch" href="posts/property-tax-cook-county/" type="text/html">
+<!-- favicons generated using http://realfavicongenerator.net/ --><!--[if lt IE 9]><script src="assets/js/html5shiv-printshiv.min.js"></script><![endif]--><link rel="prefetch" href="posts/bayesian-updating-and-the-nfl/" type="text/html">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-beta/katex.min.css" integrity="sha256-sI/DdD47R/Sa54XZDNFjRWlS+Dv8MC5xfkqQLRh0Jes=" crossorigin="anonymous">
 </head>
 <body>
@@ -35,7 +35,30 @@
     
     
     </ul></nav></header><main id="content"><div class="postindex">
-    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/property-tax-cook-county/" class="u-url">Modeling property tax assessment in Cook County, IL</a></h1>
+    <article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/bayesian-updating-and-the-nfl/" class="u-url">Bayesian updating and the NFL</a></h1>
+        <span class="metadata">
+            <time datetime="2018-09-09T00:00:42-05:00">09 Sep 2018</time><span>Filed under <a class="tag p-category" href="categories/cat_methods/" rel="category">Methods</a>.</span>
+        </span>
+    </header><div class="p-summary entry-summary">
+    <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>It's football season again, hooray! Every year for my friends' football pool I try out a different algorithm. Invariably, my picks are around 60% accurate. Not terrible, but according to NFL Pickwatch (<a href="https://web.archive.org/web/20180811195907/http://nflpickwatch.com/">archive</a>, <a href="https://nflpickwatch.com/">current season</a>), the best pickers get to 68 or 69%. So, an amazing performance—my upper bound—is just under 70%, and the lower bound for a competitive model—the FiveThirtyEight baseline—is 60%.</p>
+<p>I've been modeling NFL outcomes for a couple of years, and running linear (predicting point spread) and logistic (predicting win probability) regressions given various team and player data. My best year so far incorporated the Vegas spread into the model, and my biggest disaster so far was an aggressive lasso model on every player in every offensive line, with team defenses lumped as a group. Attempting to track <a href="https://www.pro-football-reference.com/players/injuries.htm">injuries</a>, suspensions, and other changes to the starting lineup was not sustainable for the amount of time I wanted to spend.</p>
+<p>Enter Nate Silver's awesome <span class="vocabulary" title="Arpad Elo was a Hungarian-American physics professor who invented the system to rank chess players. Silver adapted it for Football, baseball, and most of the other sports on FiveThirtyEight."><a href="https://fivethirtyeight.com/features/how-our-2017-nfl-predictions-work/">NFL Elo rankings</a></span>, the aspirational target for this year. What's impressive is that he gets something like 60% accuracy out of literally no information but home field advantage and past scores. I particularly love that it updates weekly to incorporate the new information—this immediately says "Bayesian" and in fact is a lot how people using their intuition are making their picks anyway. A system like his—but with a more straightforward Bayesian model—is the goal of this post.</p>
+<p class="more"><a href="posts/bayesian-updating-and-the-nfl/">Read more</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>    <hr>
+</div>
+    </article><article class="h-entry post-text"><header><h1 class="p-name entry-title"><a href="posts/property-tax-cook-county/" class="u-url">Modeling property tax assessment in Cook County, IL</a></h1>
         <span class="metadata">
             <time datetime="2018-08-19T00:00:42-05:00">19 Aug 2018</time><span>Filed under <a class="tag p-category" href="categories/cat_data/" rel="category">Data</a>.</span>
         </span>

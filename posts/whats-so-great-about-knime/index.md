@@ -279,7 +279,7 @@ your team can use the analytics tools they are familiar with (I actually like th
 you get reusable, modular code almost for free thanks to the way Knime is structured to pass data between nodes.
 And, as of <a href="https://www.knime.com/about/news/knime-analytics-platform-37-is-now-available">December 2018</a>, you can <a href ="https://www.knime.com/nodeguide/scripting/python/embedding-documents-with-jupyter">use Jupyter notebooks in Knime</a>...happy coding!
 
-P.S. the Knime Workflow in this post is [downloadable here](NFL.knwf).:w
+P.S. the Knime Workflow in this post is [downloadable here](NFL.knwf).
 
 
 

@@ -1,7 +1,7 @@
 <!--
 .. title: What's so great about Knime?
 .. slug: whats-so-great-about-knime
-.. date: 2019-01-09 00:00:42 UTC-05:00
+.. date: 2019-01-08 00:00:42 UTC-05:00
 .. tags: mathjax,data science,workflow,knime,python
 .. category: Tools
 .. link: 

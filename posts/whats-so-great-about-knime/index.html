@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html prefix="            og: http://ogp.me/ns# article: http://ogp.me/ns/article#     " vocab="http://ogp.me/ns" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>What's so great about Knime? | Tanya Schlusser</title>
+<link href="../../assets/css/custom.css" rel="stylesheet" type="text/css">
+<meta name="theme-color" content="#5670d4">
+<meta name="generator" content="Nikola (getnikola.com)">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../../rss.xml">
+<link rel="canonical" href="https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/">
+<link rel="apple-touch-icon" href="../../apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="../../favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="../../favicon-16x16.png" sizes="16x16">
+<link rel="icon" href="../../favicon.ico" sizes="48x48 32x32 16x16">
+<link rel="manifest" href="../../site.webmanifest">
+<link rel="mask-icon" href="../../safari-pinned-tab.svg" color="#1f91c2">
+<meta name="msapplication-TileColor" content="#00aba9">
+<meta name="theme-color" content="#cceeff">
+<!-- favicons generated using http://realfavicongenerator.net/ --><!--[if lt IE 9]><script src="../../assets/js/html5shiv-printshiv.min.js"></script><![endif]--><meta name="author" content="Tanya Schlusser">
+<link rel="prev" href="../bayesian-updating-and-the-nfl/" title="Bayesian updating and the NFL" type="text/html">
+<meta property="og:site_name" content="Tanya Schlusser">
+<meta property="og:title" content="What's so great about Knime?">
+<meta property="og:url" content="https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/">
+<meta property="og:description" content="Last March, (for the fifth time, according to
+Forest Grove Technology),
+the Knime Analytics platform was named a Gartner Magic Quadrant
+leader. This year's other leaders are Alteryx,
+SAS, RapidMinder,">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2019-01-08T00:00:42-05:00">
+<meta property="article:tag" content="data science">
+<meta property="article:tag" content="knime">
+<meta property="article:tag" content="mathjax">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="workflow">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-beta/katex.min.css" integrity="sha256-sI/DdD47R/Sa54XZDNFjRWlS+Dv8MC5xfkqQLRh0Jes=" crossorigin="anonymous">
+</head>
+<body>
+    <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+         
+    <header id="header" class="hidden-print"><nav id="menu"><a href="https://tanyaschlusser.github.io/" title="Tanya Schlusser" rel="home">
+
+        <svg viewbox="0 0 120 20" xmlns="http://www.w3.org/2000/svg"><desc>Tanya Schlusser</desc><text id="blog-title" y="15" transform="scale(1, 1.1)">Tanya Schlusser</text></svg></a>
+
+    <ul>
+<li><a href="../../projects/">Projects</a></li>
+                <li><a href="../../slides/">Slides</a></li>
+                <li><a href="../../archive.html">Archive</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><div class="metadata">
+          <time datetime="2019-01-08T00:00:42-05:00" itemprop="datePublished">08 Jan 2019</time><span>Filed under </span><a href="../../categories/cat_tools">Tools</a>.
+          
+
+        </div>
+        
+    <h1 class="p-name entry-title" itemprop="headline name"><a href="." class="u-url">What's so great about Knime?</a></h1>
+
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Last March, (for the fifth time, according to
+<a href="https://www.forestgt.com.au/latest-news/2018/3/2/knime-2018-gartner-magic-quadrant-market-leader">Forest Grove Technology</a>),
+the <a href="https://www.knime.com/">Knime Analytics platform</a> was named a Gartner Magic Quadrant
+leader. This year's other leaders are <a href="https://www.alteryx.com/">Alteryx</a>,
+<a href="https://www.sas.com/">SAS</a>, <a href="https://rapidminer.com/">RapidMinder</a>,
+and <a href="https://www.h2o.ai/">H2Oai</a>.
+The best thing I learned from the announcement? Knime is open source,
+and free for individual users—I can afford to look at it!</p>
+<p>Knime (silent "k"; rhymes with "dime") provides a graphical user interface
+to chain together blocks that represent steps in a data science workflow.
+(So they're like Pentaho or Informatica but for machine learning.
+ Or <a href="http://www.ni.com/en-us/shop/labview.html">LabView</a> if you have an
+engineering background.)</p>
+<p>It has dozens of built-in data access and transformation functions,
+statistical inference and machine learning algorithms,
+<a href="https://sourceforge.net/projects/pmml/">PMML</a>,
+and custom <a href="https://www.knime.com/blog/blending-knime-and-python">Python</a>,
+<a href="https://www.knime.com/nodeguide/scripting/java/example-of-java-snippet">Java</a>,
+<a href="https://www.knime.com/nodeguide/scripting/r/example-of-r-snippet">R</a>,
+<a href="https://informationentropy.wordpress.com/2016/03/24/programming-nodes-in-knime-with-scala-part-i/">Scala</a>,
+a <a href="https://www.knime.com/nodeguide">zillion other nodes</a>,
+or other community plugins (since it's open source, anyone can
+<a href="https://www.knime.com/developer/example/extension-wizard">make a plugin</a>.)
+Even better, Knime imposes structure and modularity
+on a data science workflow by requiring code fit into specified building blocks.</p>
+<p>This post implements the Bayesian NFL model from
+<a href="https://tanyaschlusser.github.io/posts/bayesian-updating-and-the-nfl/">last month</a>
+in Knime.
+It adds the upstream and downstream workflows to pull new data each week and
+write the model output to a spreadsheet: enough for a first look at this tool.</p>
+<!-- TEASER_END -->
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><h3>Knime's use case</h3>
+<p>Last year, Justin Gage posted a great 
+<a href="http://justinsgage.com/blog/2017/09/13/machine-learning-abstraction-and-the-age-of-ai-ease">blog post (no https)</a>
+praising new libraries that democratize Artificial Intelligence (AI) by
+making it possible to generate models in three lines of code:</p>
+<blockquote>
+"User diversity is good. It leads to better and more balanced product updates and timelines. Democratization can speed up the rate of AI progress and enable even better solutions down the road."
+<span style="float:right">— Justin Gage</span>
+</blockquote>
+
+<p>But last month he criticized standalone Graphical User Interfaces (GUIs)
+for machine learning. He argues that without upstream data collection and preparation
+and downstream deployment, isolated machine learning tools can't add value.</p>
+<blockquote class="twitter-tweet" data-lang="en">
+<p lang="en" dir="ltr">4/ The majority of a data scientist + data engineer + devops engineer time will be spent on getting data pipelines robust, cleaning said data, creative featurization and preprocessing, and deployment (which is a whole mess in of itself)</p>— Justin Gage (@jGage718) <a href="https://twitter.com/jGage718/status/1040324134633385985?ref_src=twsrc%5Etfw">September 13, 2018</a>
+</blockquote>
+
+<p>Knime is the thing he wants! A GUI machine learning pipeline
+tool—and the next step to fully democratize data science.  And yes, it can
+<a href="https://www.knime.com/knime-big-data-connectors">even do big data</a>
+<img class="inline-image" src="impala.png" alt="impala logo"><img class="inline-image" src="hadoop.jpeg" alt="hadoop logo"><img class="inline-image" src="hive.png" alt="hive logo"><img class="inline-image" src="spark.jpeg" alt="spark logo">.</p>
+<h3>Knime is a great solution for many workflow problems</h3>
+<p><img src="KnimeMiningModules.png" style="float:right;width:20%" alt="Screenshot of the menu bar showing the available built-in data mining modules for Knime under Analytics→Mining. There are 19 folders with different categories: Bayes (naïve bayes), Clustering, Rule Induction, Neural Network, Decision Tree, Decision Tree Ensemble, Miscellaneous Classifiers, Ensemble Learning, Item Sets/Association Rules, Linear/Polynomial Regression, Logistic Regression, MDS, PCA, PMML, SVM, Feature Selection, Optimization, Scoring, and Weka. Also under Analytics is Statistics, Distance Calculation, and a separte PMML folder."></p>
+<p>A lot of my previous work has been
+with domain-expert statisticians at Fortune 1000 companies. Most of them
+are long time users of SAS, SPSS, or Stata—the traditional statistical analysis
+tools taught before the mid-2000s when Python really began challenging R for
+open source analytics market share.</p>
+<p>These people often have doctorates in their specific field, and although expert
+in their tool, not traditionally-trained coders. (They could
+design pharmaceutical studies or be expert witnesses for insurance lawsuits—with a lifetime of domain specific training.)
+In these large companies, dedicated teams of people (frequently consultants
+like my former colleagues) are hired to:</p>
+<ul>
+<li>Plumb the data (make the pipelines),</li>
+<li>clean the data (hopefully <em>before</em> it enters the database),</li>
+<li>and deploy finished model output to a dashboard, report, or database.</li>
+</ul>
+<p>If you have these kind of humans in your team, Knime is a good tool.
+For non-coders, there are premade analytical blocks (see the list of directories in the inset image)
+that have an input port for the table(s) you will use, and an output port to send the result
+to a dashboard or other destination.
+There's also extensive <a href="https://www.knime.com/blog/pmml-integration-in-knime">PMML support</a>,
+so if your experts build complex models in another enterprise tool with PMML support,
+they can export it for use in Knime.</p>
+<p>And if you have a handful of coders who love using Python and others who
+love R, they can develop in their preferred language and still interface well
+with everyone else using Knime's building blocks.
+Why? Because the blocks force users to build composable modules by imposing
+variable names and types (like a Pandas <code>DataFrame</code>) for each block's
+input and output ports.</p>
+<h5>Communication is king 👑</h5>
+<p>Bonus: any C-level person, even
+if completely unfamiliar with data science, can visually follow the pictures
+in the workflow and understand the gist of what their data science team is doing.
+Even better, junior people can onboard quickly into a data science
+team with workflows that have existing data preparation written by people
+already familiar with the <span class="vocabulary" title="A ton of mistakes happen when different people aggregate data in different ways. Even something as simple as quarterly aggregation—when does a quarter end? On the Friday of the business week? Or the literal last day of the month? At close of business? Midnight? Midnight GMT? Details matter.">company's data</span>
+and target metrics.</p>
+<h5>A big company is a risky place for data cowfolks to roll their own features. 🤠</h5>
+<p>The last thing a company needs is a data wild west.
+A handful of in-house experts really ought to do (and document) all of the
+creative featurization and preprocessing. Teams with foresight will involve C-level
+people in the feature selection and make sure those features align with company
+performance metrics. (For example, are we maximizing new subscribers or minimizing churn?
+And the simple things matter: you don't want each person making different age range bins.)</p>
+<p>With Knime enforcing modularity
+via its user interface, it becomes easier to share parts of a workflow across projects
+so that the less-expert but still very useful analysts can do their job knowing
+they have sound inputs. But don't believe me, believe Paige Bailey:</p>
+<blockquote class="twitter-tweet" data-lang="en">
+<p lang="en" dir="ltr">*drags box from off-screen*<br>*stands on box*<br><br>Get obsessed with data lineage + provenance.<br><br>EVERY input feature that you use for your machine learning model should have an owner, documentation, descriptive names, and rules for quality-checking.<br><br>🙏<br><br>*steps off box, goes offscreen*</p>— 👩‍💻 .pb is for Paige Bailey ✨ (@DynamicWebPaige) <a href="https://twitter.com/DynamicWebPaige/status/1054084568444092416?ref_src=twsrc%5Etfw">October 21, 2018</a>
+</blockquote>
+
+<h5>Caveats</h5>
+<p>One negative is it took me 3 or 4 times as long to build this as it did to
+create the command-line workflow I have used for the first third of the season.
+(Hopefully part of that was learning Knime.)
+But next year I can open this file and remember at a glance what I
+was doing, since the entire workflow is in pictures.</p>
+<p>Depending on the need, the benefits for communication and collaboration can outweigh
+the intial distress of having to conform to the modular box framework Knime provides.
+Other caveats:</p>
+<ul>
+<li>Some coders sometimes think GUIs are for babies and may quit in disgust if they're
+  not sold on the benefit to the team.</li>
+<li>There is no built-in way to handle version control in Knime Analytics (free)</li>
+<li>But you can do it in Knime Server (paid) as of version 3.8 (Currently on 4.7.3),
+    and have granular permission setting on workflows.</li>
+<li>You can also check entire Knime workflows into a git repo if you're
+    cheap or flying solo:
+    (<a href="https://github.com/tanyaschlusser/Knime-NFL-example">my example</a>, not recommended
+    because the code is zipped so there are no diffs which is half the point of versioning.)</li>
+</ul>
+<p>Go on, <a href="https://www.knime.com/downloads">download it</a>—and follow along.
+The workflow for this blog post is zipped in
+<a href="https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/NFL.knwf">this file (NFL.knwf)</a>.
+You can move it to your Knime workflows directory (<code>~/knime-workflows</code> is my default)
+or leave it where it is and navigate to it.</p>
+<p>You will also have to set up your Python environment. Either use one that already
+has <code>requests</code>, <code>numpy</code>, and <code>pandas</code> installed, or create a new one with this
+<a href="https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/requirements.txt">requirements.txt</a>:</p>
+<ul>
+<li>
+<code>conda create -n nfl-knime-example --file requirements.txt</code> (<a href="https://conda.io/docs/user-guide/install/download.html">get conda</a>)</li>
+<li>or<br><code>mkvirtualenv nfl-knime-example -r requirements.txt</code> (<a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">get mkvirtualenv</a>)</li>
+</ul>
+<h3>Example with NFL predictions</h3>
+<p>The very first thing, since I'm using Python, is to set the path to my Conda
+(or virtualenv) environment. </p>
+<p>Navigate to</p>
+<blockquote>
+KNIME → Preferences → KNIME → Python
+</blockquote>
+
+<p>And select the path for the Python executable in your desired environment.
+If you want, also click
+<img style="height:1.2em;vertical-align:sub" src="KnimeUseAsDefaultButton.png" alt="the 'Use as default' button">.</p>
+<p><img style="width:60%;display:block;border:1px solid silver;margin:1em auto 0" src="KnimeSetPythonEnv.png" alt="Screenshot showing how to set the Python environment. The path is /Users/tanyschlusser/miniconda3/envs/Blog/bin/python3.6"></p>
+<h4>Objective</h4>
+<p>The following Knime workflows will start from scratch to load everything I need for
+<a href="https://tanyaschlusser.github.io/posts/bayesian-updating-and-the-nfl/">the model from last month's post</a>:
+counting the number of wins and losses and
+predicting win likelihood for the home team $H$ versus the away team $A$ as:</p>
+<p>$$
+P(H \text{ will win}) = \frac{H_\text{wins} + A_\text{losses}}{H_\text{total games} + A_\text{total games}}
+                 + \text{Home advantage}
+$$</p>
+<p>(Plus reversion to mean.) The three Knime workflows in this post are (1) Data ingestion,
+(2) Data updating each week, and (3) Predictions for each week.</p>
+<h4>Data ingestion</h4>
+<p>This first workflow is the initial data pull from the
+<a href="https://github.com/fivethirtyeight/nfl-elo-game/raw/master/data/nfl_games.csv">FiveThirtyEight CSV</a>,
+plus data I pulled to get the schedule for the upcoming 2018 season, and a lookup file
+mapping the FiveThirtyEight team abbreviations to the team abbreviations from
+<a href="https://www.cbssports.com/nfl/scoreboard/all/2018/regular/7/">CBS.com</a>,
+where I will get the new data from every week.</p>
+<p>The important thing here is, I wrote no code; I just selected
+the SQL type (varchar/float) for columns in the red "Database Writer" nodes.
+The very first node—the SQLite connector to <code>NFL538.db</code>—will create the database at the file location specified if one does not already exist.
+ The last block—"Database Table Creator"—contains no data;
+it sets up column names and types for a blank table that will hold
+each team's Alpha/Beta values week over week for the Bayesian updating.</p>
+<p>Every destination block in the workflow (the "Database Writer" and "Database Table Creator") blocks
+must be executed separately. To execute, right click (or control-click) and select "Execute".</p>
+<p><img src="KnimeCreateWorkflow.png" alt="There is a text label that says 'Initial workflow to populate the database. To be run once.' The image also contains eight nodes: a SQLite connector to the football database NFL538.db, and three pairs of nodes in which the first node gets data from the internet or a local file and the second node loads the file as a separate new table in the database. At the end is one last block that creates the table that will store the running alpha, beta values that keep track of wins and losses (reverted to the mean each season)." style="width:100%"></p>
+<h4>Data updating</h4>
+<p>This second workflow is in two steps. Again the point is to show that you can follow
+all of the sequence without seeing a single line of code.</p>
+<h5>Description of the steps</h5>
+<p>On the left is the weekly data pull from 
+<a href="https://www.cbssports.com/nfl/scoreboard/all/2018/regular/7/">CBS.com</a>.
+In the first step, there is a SQLite connector to open the football database NFL538.db,
+then one block to read the most recent game date and another to read the entire team
+abbreviation lookup table (because CBS and the FiveThirtyEight abbreviations are different).
+The most recent date is fed into a transformer to convert the "table" into a "flow variable".
+In Python all of the flow variables are values passed around in a dictionary.
+The Python script then pulls all of the games that have been played between the last
+database date and now.
+The resulting new game data then flows into a final block that writes to the '<code>games</code>' table
+in the NFL538 database.</p>
+<p>On the right is the code to update the <code>alphabeta</code> table. (All of the workflow on the right
+can now be replaced by a <span class="vocabulary" title="A SQL 'trigger' is an action (here it would be a query + insert) that is run every time 'something' happens, where something in SQLite can be an insert, update, or delete.">trigger</span>
+in SQLite as of September 15, since
+<a href="https://www.sqlite.org/windowfunctions.html#history">SQLite now supports window functions</a>,
+but I started this blog post before the release, so sorry).</p>
+<p>The second workflow also starts with a SQLite connector to the football database NFL538.db, which reads all of the game data that has not yet been added to the 'alphabeta' table (with the running totals) into one Pandas DataFrame, and then reads the most recent alpha and beta values for each team into a second Pandas DataFrame. Both are input to a Python script that calculates the alpha and beta values (running wins/losses plus a reversion to mean) and writes them to the table 'alphabeta' in NFL538.db.</p>
+<p><img src="KnimeUpdateWorkflow.png" alt="There is a text label that says 'Workflow to update the database with new games and calculate new alpha and beta values—run after every weekend.' The image also contains two separate sets of connected nodes that were already described in the text paragraph." style="width:100%"></p>
+<h4>Prediction</h4>
+<p>The final workflow does the actual prediction. It contains a loop (with start and end designated by the blue blocks) that calculates the prediction for each upcoming game. Honestly, the loop was non-intuitive for me to implement, and I would in the future just use a Python script with the three inputs: the home advantage, the upcoming matchups, and the most recent alpha and beta values used in the prediction.</p>
+<p>Here's a description of the workflow as it is, for what it's worth: Each week, after re-running the two data updating steps in the last section, this step will make predictions for the upcoming games. First, a short Python script (the yellow block named <code>this_week</code>) identifies what week in the season it is, feeding a SQL query that pulls the upcoming week's lineup. Then the loop combines the upcoming game data with the team statistics and a number for home team advantage, and saves all of the predictions to an Excel worksheet (the red block).</p>
+<p>The cool thing here is that instead of writing to an Excel file, this output could be sent to a dashboard for consumption by the HiPPOs (Highest Paid Person's Opinion, coined by <a href="https://www.forbes.com/sites/bernardmarr/2017/10/26/data-driven-decision-making-beware-of-the-hippo-effect/#7601d7ba80f9">Avinash Kaushik</a>).
+Knime's <a href="https://www.knime.com/reporting">reporting tools</a> use the open-source BIRT tool (<a href=".">Basic Intelligence Reporting Tool</a>) which I think kind of makes ugly stuff (<a href="https://www.eclipse.org/birt/demos/#solution">demos</a>), but hey, it's free. And there are <a href="https://docs.knime.com/latest/tableau_integration_user_guide/index.html">connectors to Tableau</a> if you want something nicer.</p>
+<p><img src="KnimePredictWorkflow.png" alt="Prediction workflow to pull upcoming game matchups and use the latest alpha and beta values plus home team advantage to predict outcomes." style="width:100%"></p>
+<h3>Conclusion</h3>
+<p>If you run a data science team where infrastructure is becoming a bottleneck, Knime may be worth a try:
+your team can use the analytics tools they are familiar with (I actually like the Python IDE) and
+you get reusable, modular code almost for free thanks to the way Knime is structured to pass data between nodes.
+And, as of <a href="https://www.knime.com/about/news/knime-analytics-platform-37-is-now-available">December 2018</a>, you can <a href="https://www.knime.com/nodeguide/scripting/python/embedding-documents-with-jupyter">use Jupyter notebooks in Knime</a>...happy coding!</p>
+<p>P.S. the Knime Workflow in this post is <a href="NFL.knwf">downloadable here</a>.:w</p>
+<h4>Python libraries used in this example</h4>
+<ul>
+<li>The Knime Analytics version used in this example is 3.6.0.</li>
+<li>The SQLite3 database version is 3.24.0.</li>
+<li>The Conda environment in this example uses Python 3.6.6, NumPy 1.15.1, Pandas 0.23.4, requests 2.19.1, and lxml 4.2.4</li>
+<li>The <a href="https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/requirements.txt">requirements.txt</a>
+</li>
+</ul>
+<h4>Vocabulary</h4>
+<ul>
+<li>
+<p><strong>Gartner Magic Quadrant</strong><br>
+Gartner is a consulting and analysis company that puts out annual <a href="https://www.gartner.com/en/research/methodologies/magic-quadrants-research">"Magic Quadrant"</a> assessments comparing industry leaders' technology. Those who make it in the "upper right" quadrant generally blog post and publicize it.</p>
+</li>
+<li>
+<p><strong>plumbing</strong><br>
+It's probably not an official term, but a lot of my friends call extract, transform, load and other data engineering work "data plumbing". When I say it people outside the industry understand what I'm talking about.</p>
+</li>
+<li>
+<p><strong>PMML</strong><br>
+The <a href="https://sourceforge.net/projects/pmml/">Predictive Model Markup Language</a> is an industry standard XML format to specify common machine learning models with the intent to make them portable across implementations (SPSS/SAS/R/Python/etc).</p>
+</li>
+<li>
+<p><strong>SQL Trigger</strong><br>
+A SQL 'trigger' is an action (such as a query and insert) that is run every time 'something' happens, where something in SQLite can be an insert, update, or delete.
+(<a href="SQLite%20trigger%20documentation">https://www.sqlite.org/lang_createtrigger.html</a> — doesn't support <a href="https://www.sqlite.org/omitted.html"><code>FOR EACH ROW</code></a>)</p>
+</li>
+</ul>
+<h4>References</h4>
+<ul>
+<li>
+<a href="https://www.knime.com/blog/blending-knime-and-python">Blending Knime and Python</a>—Bidirectional use of Knime...also from Python using Knime web server which is just an HTTP GET</li>
+<li><a href="https://www.youtube.com/watch?v=XewYe39heAE">Announcement: Knime Server (3.8+; 2014) has version control</a></li>
+<li><a href="https://www.knime.com/about/news/knime-analytics-platform-37-is-now-available">Annoumcement: Knime (3.7+; 2018) works with Jupyter</a></li>
+<li><a href="https://www.knime.com/nodeguide/scripting/python/embedding-documents-with-jupyter">Example embedding documents using a Jupyter notebook</a></li>
+<li><a href="https://www.knime.com/nodeguide/scripting/java/example-of-java-snippet">Example using Java in Knime</a></li>
+<li><a href="https://www.knime.com/nodeguide/scripting/r/example-of-r-snippet">Example using R in Knime</a></li>
+<li><a href="https://www.knime.com/blog/blending-knime-and-python">Example using Python in Knime</a></li>
+<li><a href="https://informationentropy.wordpress.com/2016/03/24/programming-nodes-in-knime-with-scala-part-i/">Example using Scala in Knime</a></li>
+<li><a href="https://www.knime.com/nodeguide">Tons of other Knime nodes</a></li>
+<li><a href="https://github.com/fivethirtyeight/nfl-elo-game/raw/master/data/nfl_games.csv">The FiveThirtyEight NFL game data</a></li>
+<li><a href="https://www.knime.com/knime-big-data-connectors">Knime big data connectors</a></li>
+<li><a href="https://www.forbes.com/sites/bernardmarr/2017/10/26/data-driven-decision-making-beware-of-the-hippo-effect/#7601d7ba80f9">"The HiPPO effect"</a></li>
+<li><a href="https://www.knime.com/reporting">Knime's reporting tools</a></li>
+<li>
+<a href="https://www.eclipse.org/birt/">Description of BIRT (Basic Intelligence Reporting Tool)</a>  (<a href="https://www.eclipse.org/birt/demos/#solution">demos</a>)</li>
+<li><a href="https://docs.knime.com/latest/tableau_integration_user_guide/index.html">Knime Tableau integration guide</a></li>
+</ul>
+</div>
+    </div>
+    <aside class="postpromonav"><span class="hidden-print">
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></span>
+    <span class="hidden-print">
+      <script src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script><script type="IN/Share" data-url="https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/"></script></span>
+    <nav><ul itemprop="keywords" class="tags">
+<li>Filed under:  <a class="tag p-category" href="../../categories/cat_tools/" rel="category"> Tools</a>
+</li>
+            <li><a class="tag p-category" href="../../categories/data-science/" rel="tag">data science</a></li>
+            <li><a class="tag p-category" href="../../categories/knime/" rel="tag">knime</a></li>
+            <li><a class="tag p-category" href="../../categories/python/" rel="tag">python</a></li>
+            <li><a class="tag p-category" href="../../categories/workflow/" rel="tag">workflow</a></li>
+      </ul>
+<ul class="pager hidden-print">
+<li>
+            <a href="../bayesian-updating-and-the-nfl/" rel="prev" class="previous" title="Bayesian updating and the NFL"><span aria-hidden="true">‹ </span>Older</a>
+        </li>
+        <li>
+            <span class="disabled">Newer<span aria-hidden="true"> ›</span></span>
+        </li>
+    </ul></nav></aside></article><aside class="bio">
+    Thank you for reading! <span class="red">❤ </span> I'm a developer based in
+    <a href="https://chipy.org" title="My home Python user group!">Chicago</a>.
+    I'm not working right now because my Mom is sick, but we can connect on
+    <a href="https://www.linkedin.com/in/tanyatickel" title="Say you read my blog so I know you're not a robot.">LinkedIn</a>, or
+    you can find my work on <a href="https://github.com/tanyaschlusser" title="Where this site is hosted...">GitHub</a>.
+    I'm on <a href="https://twitter.com/tanyaschlusser">Twitter</a> too, but don't use it much.
+</aside><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-beta/katex.min.js" integrity="sha256-mxaM9VWtRj1wBtn50/EDUUe4m3t39ExE+xEPyrxVB8I=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0-beta/contrib/auto-render.min.js" integrity="sha256-9uFJqVHnc71lPswxPcpJP49zqhdqp7DFqX68yHs358I=" crossorigin="anonymous"></script><script>
+                renderMathInElement(document.body,
+                    {
+                        
+delimiters: [
+    {left: "$$", right: "$$", display: true},
+    {left: "\\[", right: "\\]", display: true},
+    {left: "$", right: "$", display: false},
+    {left: "\\(", right: "\\)", display: false}
+]
+
+                    }
+                );
+            </script></main><footer id="footer"><p class="light-sans">© Tanya Schlusser · Subscribe via <a href="../../rss.xml">RSS</a> · Powered by <a href="https://getnikola.com" rel="nofollow">Nikola</a> using a <a href="https://github.com/tanyaschlusser/tanyaschlusser.github.io/tree/src">custom theme</a> </p>
+            
+        </footer><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-130209649-2"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-130209649-2');
+</script>
+</body>
+</html>

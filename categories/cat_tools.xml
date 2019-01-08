@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tanya Schlusser (Posts about Tools)</title><link>https://tanyaschlusser.github.io/</link><description></description><atom:link href="https://tanyaschlusser.github.io/categories/cat_tools.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><copyright>Contents © 2019 &lt;a href="mailto:tanya@tickel.net"&gt;Tanya Schlusser&lt;/a&gt; </copyright><lastBuildDate>Tue, 08 Jan 2019 06:06:46 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>What's so great about Knime?</title><link>https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/</link><dc:creator>Tanya Schlusser</dc:creator><description>&lt;div&gt;&lt;p&gt;Last March, (for the fifth time, according to
+&lt;a href="https://www.forestgt.com.au/latest-news/2018/3/2/knime-2018-gartner-magic-quadrant-market-leader"&gt;Forest Grove Technology&lt;/a&gt;),
+the &lt;a href="https://www.knime.com/"&gt;Knime Analytics platform&lt;/a&gt; was named a Gartner Magic Quadrant
+leader. This year's other leaders are &lt;a href="https://www.alteryx.com/"&gt;Alteryx&lt;/a&gt;,
+&lt;a href="https://www.sas.com/"&gt;SAS&lt;/a&gt;, &lt;a href="https://rapidminer.com/"&gt;RapidMinder&lt;/a&gt;,
+and &lt;a href="https://www.h2o.ai/"&gt;H2Oai&lt;/a&gt;.
+The best thing I learned from the announcement? Knime is open source,
+and free for individual users—I can afford to look at it!&lt;/p&gt;
+&lt;p&gt;Knime (silent "k"; rhymes with "dime") provides a graphical user interface
+to chain together blocks that represent steps in a data science workflow.
+(So they're like Pentaho or Informatica but for machine learning.
+ Or &lt;a href="http://www.ni.com/en-us/shop/labview.html"&gt;LabView&lt;/a&gt; if you have an
+engineering background.)&lt;/p&gt;
+&lt;p&gt;It has dozens of built-in data access and transformation functions,
+statistical inference and machine learning algorithms,
+&lt;a href="https://sourceforge.net/projects/pmml/"&gt;PMML&lt;/a&gt;,
+and custom &lt;a href="https://www.knime.com/blog/blending-knime-and-python"&gt;Python&lt;/a&gt;,
+&lt;a href="https://www.knime.com/nodeguide/scripting/java/example-of-java-snippet"&gt;Java&lt;/a&gt;,
+&lt;a href="https://www.knime.com/nodeguide/scripting/r/example-of-r-snippet"&gt;R&lt;/a&gt;,
+&lt;a href="https://informationentropy.wordpress.com/2016/03/24/programming-nodes-in-knime-with-scala-part-i/"&gt;Scala&lt;/a&gt;,
+a &lt;a href="https://www.knime.com/nodeguide"&gt;zillion other nodes&lt;/a&gt;,
+or other community plugins (since it's open source, anyone can
+&lt;a href="https://www.knime.com/developer/example/extension-wizard"&gt;make a plugin&lt;/a&gt;.)
+Even better, Knime imposes structure and modularity
+on a data science workflow by requiring code fit into specified building blocks.&lt;/p&gt;
+&lt;p&gt;This post implements the Bayesian NFL model from
+&lt;a href="https://tanyaschlusser.github.io/posts/bayesian-updating-and-the-nfl/"&gt;last month&lt;/a&gt;
+in Knime.
+It adds the upstream and downstream workflows to pull new data each week and
+write the model output to a spreadsheet: enough for a first look at this tool.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/"&gt;Read more&lt;/a&gt; (14 min remaining to read)&lt;/p&gt;&lt;/div&gt;</description><category>data science</category><category>knime</category><category>mathjax</category><category>python</category><category>workflow</category><guid>https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/</guid><pubDate>Tue, 08 Jan 2019 05:00:42 GMT</pubDate></item></channel></rss>

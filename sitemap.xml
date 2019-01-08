@@ -7,19 +7,19 @@
                         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
  <url>
   <loc>https://tanyaschlusser.github.io/</loc>
-  <lastmod>2018-09-10T04:41:00Z</lastmod>
+  <lastmod>2019-01-04T15:05:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/404.html</loc>
-  <lastmod>2018-08-21T19:40:00Z</lastmod>
+  <lastmod>2018-12-07T06:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/archive.html</loc>
-  <lastmod>2018-09-10T16:40:00Z</lastmod>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/</loc>
-  <lastmod>2018-09-10T16:40:00Z</lastmod>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/ab-testing/</loc>
@@ -38,8 +38,16 @@
   <lastmod>2018-08-21T19:40:00Z</lastmod>
  </url>
  <url>
+  <loc>https://tanyaschlusser.github.io/categories/cat_tools/</loc>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://tanyaschlusser.github.io/categories/civic-data/</loc>
   <lastmod>2018-08-21T19:40:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/data-science/</loc>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/feature-engineering/</loc>
@@ -48,6 +56,14 @@
  <url>
   <loc>https://tanyaschlusser.github.io/categories/iterative/</loc>
   <lastmod>2018-09-10T05:20:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/knime/</loc>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
+ </url>
+ <url>
+  <loc>https://tanyaschlusser.github.io/categories/mathjax/</loc>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/categories/mcmc/</loc>
@@ -62,6 +78,10 @@
   <lastmod>2018-08-21T19:40:00Z</lastmod>
  </url>
  <url>
+  <loc>https://tanyaschlusser.github.io/categories/python/</loc>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://tanyaschlusser.github.io/categories/selenium/</loc>
   <lastmod>2018-08-21T21:31:00Z</lastmod>
  </url>
@@ -70,8 +90,12 @@
   <lastmod>2018-08-21T19:40:00Z</lastmod>
  </url>
  <url>
+  <loc>https://tanyaschlusser.github.io/categories/workflow/</loc>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://tanyaschlusser.github.io/posts/</loc>
-  <lastmod>2018-09-10T04:41:00Z</lastmod>
+  <lastmod>2018-12-07T06:44:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/posts/bayesian-updating-and-the-nfl/</loc>
@@ -86,12 +110,16 @@
   <lastmod>2018-08-21T21:31:00Z</lastmod>
  </url>
  <url>
+  <loc>https://tanyaschlusser.github.io/posts/whats-so-great-about-knime/</loc>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
+ </url>
+ <url>
   <loc>https://tanyaschlusser.github.io/projects/</loc>
   <lastmod>2018-08-21T19:41:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/</loc>
-  <lastmod>2018-08-21T19:41:00Z</lastmod>
+  <lastmod>2019-01-08T06:06:00Z</lastmod>
  </url>
  <url>
   <loc>https://tanyaschlusser.github.io/slides/BigData.slides.html</loc>

@@ -28,7 +28,7 @@ h1 {
 
 a {
   text-decoration: none;
-  color: #228;
+  color: #33a;
 }
 
 a:hover {
@@ -193,18 +193,26 @@ time {
   font-weight: 200;
 }
 
+.twitter-tweet {
+  display: block;
+  max-width:60%;
+  min-width:250px;
+  margin:auto;
+}
+
 .grow-link {
   position: absolute; 
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 1;
 }
 
 .inline-image {
-  height:1.6em;
-  vertical-align:middle;
+  height: 1.6em;
+  padding: 0 .2em;
+  vertical-align: middle;
 }
 
 .light-italic {
@@ -451,7 +459,7 @@ time {
 
 .prompt[role="button"]:active,
 .prompt[role="button"]:focus {
-  color: #228;
+  color: #339;
   font-weight: 300;
 }
 

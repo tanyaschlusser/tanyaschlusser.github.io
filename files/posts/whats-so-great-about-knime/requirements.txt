@@ -1,0 +1,4 @@
+lxml==4.2.4
+requests==2.19.1
+numpy==1.15.1
+pandas==0.23.4
